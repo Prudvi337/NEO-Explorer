@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orrery Web App</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../assets/icon.png">
+</head>
+<body>
+
+    <!-- Back Button -->
+    <button id="backBtn" >←</button>
+
+    <!-- Toggle NEO List Button -->
+    <button id="toggleNEO" >☰</button>
+
+    <!-- NEO List -->
+    <div id="neoList"></div>
+
+    <div id="controls">
+        <button id="zoomOut" style="border-radius: 50px 0 0 50px;" >-</button>
+        <button id="zoomIn" style="border-radius: 0 50px 50px 0;" >+</button>
+    </div>    
+    <canvas id="canvas"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+    <script src="../script/orrery.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the wonders of space with our interactive 3D celestial app">
+  <title>NEOs Explorer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body class="bg-black text-white font-roboto">
+  <header class="flex justify-between items-center p-6 bg-gradient-to-r from-blue-900 to-black fixed top-0 w-full z-50">
+    <div class="flex items-center">
+      <img src="assets/logo.png" alt="NEOs Explorer Logo" class="w-8 h-8 mr-2" style="width: 50px; height: 50px;">
+      <span class="text-2xl font-bold text-blue-400">NEOs Explorer</span>
+  </div>
+      <nav>
+      <ul class="flex space-x-6">
+        <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+        <li><a href="#features" class="hover:text-blue-400 transition">Features</a></li>
+        <li><a href="#contributors" class="hover:text-blue-400 transition">Contributors</a></li>
+        <li><a href="src/neo.html" class="hover:text-blue-400 transition">NEOs Data</a></li>
+        <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+        <li><a href="javascript:void(0)" class="start-exploring-btn mt-8 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition duration-300">Start Exploring</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ <!-- Hero Section -->
+<section id="hero" class="h-screen flex flex-col justify-center items-center relative">
+    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
+      <source src="assets/earth1.mp4" type="video/mp4">
+    </video>
+    <h1 class="text-6xl font-orbitron tracking-wide text-blue-200 animate-pulse">Explore the Universe</h1>
+    <p class="mt-4 text-xl text-gray-300">Discover planets, asteroids, and Near-Earth Objects with our interactive 3D experience</p>
+    <a href="javascript:void(0)" class="start-exploring-btn mt-8 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition duration-300">Start Exploring</a>
+    <div id="popup" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+      <div class="popup-content p-8 bg-gray-900 rounded-lg text-white relative w-96 space-theme">
+        <h2 class="text-2xl mb-4">Select Dates to Explore NEOs</h2>
+        <form id="explore-form">
+          <label for="start-date" class="block mb-2">From:</label>
+          <input type="date" id="start-date" class="w-full p-2 mb-4 text-black" required min="2020-01-01" max="2030-12-31">
+          <label for="end-date" class="block mb-2">To:</label>
+          <input type="date" id="end-date" class="w-full p-2 mb-4 text-black" required min="2020-01-01" max="2030-12-31">
+          <p class="text-sm text-red-500 hidden" id="error-message">You cannot select more than 3 days!</p>
+          <button type="submit" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 py-2 rounded-full text-white">Explore NEOs</button>
+        </form>
+        <button id="close-popup" class="absolute top-2 right-2 text-white">X</button>
+      </div>
+    </div>
+    </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-gray-900 text-center">
+    <h2 class="text-4xl font-bold text-blue-400 mb-8">About NEOs Explorer</h2>
+    <p class="max-w-2xl mx-auto text-lg text-gray-300 leading-relaxed">
+      The NEOs Explorer web app offers an immersive 3D journey through our solar system using advanced WebGL and Three.js technologies. Users can explore the orbits of planets, asteroids, and Near-Earth Objects (NEOs) in real-time, learning about their characteristics and trajectories. Designed for space enthusiasts, educators, and the curious, it transforms astronomical data into a stunning, interactive experience. With realistic visuals, dynamic lighting, and precise orbital mechanics, NEOs Explorer provides a powerful tool for tracking asteroids and visualizing planetary movements, making it ideal for both educational and exploratory purposes.
+
+    </p>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-24 bg-gradient-to-b from-gray-900 to-black text-center text-white">
+    <h2 class="text-4xl font-bold text-blue-400 mb-8">Features</h2>
+    <div class="flex flex-wrap justify-center space-x-8">
+      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/3d.gif'); background-size: cover; background-position: center;">
+        <h3 class="text-2xl font-semibold mb-4">Real-Time 3D Visualization</h3>
+        <p class="text-gray-400">Experience the universe like never before. View planets, asteroids, and NEOs in full 3D with realistic textures and dynamic lighting. Each object is rendered in real-time for a seamless and immersive journey through space.</p>
+      </div>
+      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/solar.gif'); background-size: cover; background-position: center;">
+        <h3 class="text-2xl font-semibold mb-4">Planetary Orbits</h3>
+        <p class="text-gray-400">Witness the intricate dance of celestial bodies as they orbit the sun. The simulation ensures precise orbit paths for planets, asteroids, and NEOs based on their astronomical data, giving users an authentic view of our solar system’s mechanics.</p>
+      </div>
+      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/interactive.gif'); background-size: cover; background-position: center;">
+        <h3 class="text-2xl font-semibold mb-4">Interactive Exploration</h3>
+        <p class="text-gray-400">Navigate through the cosmos at your fingertips. Zoom in to examine the details of planets or NEOs, and click on objects to reveal detailed data. This feature empowers users to explore specific bodies and gain insights into their orbits, velocity, and more.</p>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-center space-x-8" style="margin-top: 20px;">
+      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/neo.gif'); background-size: cover; background-position: center;">
+        <h3 class="text-2xl font-semibold mb-4">NEOs Search by Date</h3>
+        <p class="text-gray-400">Utilize the NEOs search feature to discover and explore Near-Earth Objects approaching Earth within specific date ranges. Stay informed on NEOs close to Earth during any chosen time frame.</p>
+      </div>
+      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/zoom.gif'); background-size: cover; background-position: center;">
+        <h3 class="text-2xl font-semibold mb-4">Zoom & Click Functionality</h3>
+        <p class="text-gray-400">Dive deep into the solar system by zooming in on specific planets or NEOs, and click on objects to access detailed information about their size, velocity, distance, and orbital characteristics.</p>
+      </div>
+      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/inter.jpg'); background-size: cover; background-position: center;">
+        <h3 class="text-2xl font-semibold mb-4">Planetary & Sun Exploration</h3>
+        <p class="text-gray-400">Explore precise planetary orbits and the Sun's position, observing their interactions and alignments with celestial bodies to gain insights into the solar system's dynamics.</p>
+      </div>
+    </div>
+</section>
+
+  <!-- Contributors Section -->
+
+  <section id="contributors" class="py-24 bg-gradient-to-b from-gray-1000 to-black text-center text-white"style="background-image: url('assets/earth.gif'); background-size: cover; background-position: center;">
+      <h2 class="text-4xl font-bold text-blue-400 mb-8" style="text-align: center;">Contributors</h2>
+      <div class="contributors-grid">
+          <!-- Contributor 1: Prudvi Kumar Reddy -->
+          <div class="contributor-card">
+              <h3>Prudvi Kumar Reddy</h3>
+              <p>Team Leader</p>
+              <p>Computer Science student at Nalla Malla Reddy Engineering College</p>
+              <div class="social-icons">
+                  <a href="mailto:prudvireddy7733@gmail.com"><i class="fas fa-envelope"></i></a>
+                  <a href="https://github.com/Prudvi337" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/prudvi-kumar-reddy-5679662a5" target="_blank"><i class="fab fa-linkedin"></i></a>
+              </div>
+          </div>
+  
+          <!-- Contributor 2: Akhila V -->
+          <div class="contributor-card">
+              <h3>Akhila V</h3>
+              <p>Team Member I</p>
+              <p>Computer Science student at Nalla Malla Reddy Engineering College</p>
+              <div class="social-icons">
+                  <a href="mailto:vadlaakhila122@gmail.com"><i class="fas fa-envelope"></i></a>
+                  <a href="https://github.com/vakhila11" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/v-akhila-054aaa25b" target="_blank"><i class="fab fa-linkedin"></i></a>
+              </div>
+          </div>
+  
+          <!-- Contributor 3: Ankit Sharma -->
+          <div class="contributor-card">
+              <h3>Mahesh Babu</h3>
+              <p>Team Member II</p>
+              <p>Computer Science student at Saveetha Engineering College</p>
+              <div class="social-icons">
+                  <a href="mailto:maheshbabu0701@gmail.com"><i class="fas fa-envelope"></i></a>
+                  <a href="https://github.com/Mahesh0107" target="_blank"><i class="fab fa-github"></i></a>
+                  <a href="https://www.linkedin.com/in/maheshbabukoppala" target="_blank"><i class="fab fa-linkedin"></i></a>
+              </div>
+          </div>
+        </div>
+  </section>
+  
+
+ <!-- Contact Section -->
+<section id="contact" class="py-24 bg-gradient-to-b from-black to-blue-900 text-center" style="margin-top:150px;">
+  <h2 class="text-4xl font-bold text-blue-400 mb-8">Get in Touch</h2>
+  <p class="text-lg text-gray-300 mb-8">Have questions or want to learn more about space exploration? Reach out to us!</p>
+  <form id="contact-form" class="max-w-lg mx-auto">
+      <input type="text" id="name" name="name" placeholder="Your name" class="w-full p-4 mb-4 rounded bg-gray-800 text-white" required>
+      <input type="email" id="email" name="email" placeholder="Your email" class="w-full p-4 mb-4 rounded bg-gray-800 text-white" required>
+      <textarea id="message" name="message" placeholder="Your message" class="w-full p-4 mb-4 rounded bg-gray-800 text-white" rows="4" required></textarea>
+      <button type="submit" class="w-full px-6 py-4 bg-blue-500 hover:bg-blue-600 rounded text-white">Send Message</button>
+  </form>
+</section>
+
+<!-- Add EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+ (function() {
+     emailjs.init('XGJqP0cbaUvo1EuK4'); 
+ })();
+
+ document.getElementById('contact-form').addEventListener('submit', function(event) {
+     event.preventDefault(); 
+
+     // Get form values
+     var name = document.getElementById('name').value;
+     var email = document.getElementById('email').value;
+     var message = document.getElementById('message').value;
+
+     // Prepare email params
+     var templateParams = {
+         name: name,
+         email: email,
+         message: message
+     };
+
+     // Send email using EmailJS
+     emailjs.send('service_lxsmhga', 'template_rc5uws2', templateParams)
+         .then(function(response) {
+             console.log('SUCCESS!', response.status, response.text);
+             alert("Message sent successfully!");
+         }, function(error) {
+             console.log('FAILED...', error);
+             alert("Failed to send message. Please try again later.");
+         });
+ });
+</script>
+
+  <!-- Footer -->
+  <footer class="py-6 bg-black text-center text-gray-400">
+    <p>&copy; 2024 NEOs Explorer. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scroll Animation -->
+  <script>
+    gsap.from("#hero h1", { duration: 1.5, opacity: 0, y: -50 });
+    gsap.from("#hero p", { duration: 1.5, opacity: 0, y: 50 });
+  </script>
+  <script src="script/orrery.js" defer></script>
+</body>
+</html>

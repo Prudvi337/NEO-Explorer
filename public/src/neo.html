@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEOs Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="../assets/icon.png">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+<body class="space-theme">
+    <!-- Header with updated nav bar -->
+    <header class="flex justify-between items-center p-6 bg-gradient-to-r from-blue-900 to-black fixed top-0 w-full z-50">
+      <div class="flex items-center">
+        <img src="../assets/logo.png" alt="NEOs Explorer Logo" class="w-8 h-8 mr-2" style="width: 50px; height: 50px;">
+        <span class="text-2xl font-bold text-blue-400">NEOs Explorer</span>
+    </div>  
+          <nav>
+          <ul class="flex space-x-6">
+            <li><a href="../home.html" class="hover:text-blue-400 transition">About</a></li>
+            <li><a href="neo.html" class="hover:text-blue-400 transition">NEOs Data</a></li>
+            <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+            <li><a href="javascript:void(0)" class="start-exploring-btn mt-8 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition duration-300">Start Exploring</a></li>
+          </ul>
+        </nav>
+      </header> 
+      <div id="popup" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+        <div class="popup-content p-8 bg-gray-900 rounded-lg text-white relative w-96 space-theme">
+          <h2 class="text-2xl mb-4">Select Dates to Explore NEOs</h2>
+          <form id="explore-form">
+            <label for="start-date" class="block mb-2">From:</label>
+            <input type="date" id="start-date" class="w-full p-2 mb-4 text-black" required min="2020-01-01" max="2030-12-31">
+            <label for="end-date" class="block mb-2">To:</label>
+            <input type="date" id="end-date" class="w-full p-2 mb-4 text-black" required min="2020-01-01" max="2030-12-31">
+            <p class="text-sm text-red-500 hidden" id="error-message">You cannot select more than 3 days!</p>
+            <button type="submit" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 py-2 rounded-full text-white">Explore NEOs</button>
+          </form>
+          <button id="close-popup" class="absolute top-2 right-2 text-white">X</button>
+        </div>
+      </div>
+  
+    <!-- Main content -->
+    <main>
+      <div class="background-video">
+        <video autoplay muted loop id="background-video" style="position: fixed;margin:20px 20px 20px 20px;">
+          <source src="../assets/asteroids.mp4" type="video/mp4">
+        </video>
+      </div>
+        <section class="neos-data-section" style="margin-top:200px;">
+            <h1>Explore Near-Earth Objects Data</h1>
+            
+            <!-- Date selection box -->
+            <div class="date-selection">
+              <label for="start-date1" style="color: #00c0ff;">Start Date:</label>
+              <input type="date" id="start-date1">
+              
+              <label for="end-date1" style="color: #00c0ff;">End Date:</label>
+              <input type="date" id="end-date1">
+              
+              <button id="fetch-neos" style="width: 150px;">Fetch NEOs</button>
+            </div>
+            <!-- NEOs cards container -->
+            <div class="neos-cards-container" id="neos-cards-container">
+                <!-- Fetched NEO data will be displayed here as cards -->
+            </div>
+        </section>
+    </main>
+ <!-- Contact Section -->
+ <section id="contact" class="py-24 bg-gradient-to-b from-black to-blue-900 text-center" style="margin-top:150px;">
+  <h2 class="text-4xl font-bold text-blue-400 mb-8">Get in Touch</h2>
+  <p class="text-lg text-gray-300 mb-8">Have questions or want to learn more about space exploration? Reach out to us!</p>
+  <form id="contact-form" class="max-w-lg mx-auto">
+      <input type="text" id="name" name="name" placeholder="Your name" class="w-full p-4 mb-4 rounded bg-gray-800 text-white" required>
+      <input type="email" id="email" name="email" placeholder="Your email" class="w-full p-4 mb-4 rounded bg-gray-800 text-white" required>
+      <textarea id="message" name="message" placeholder="Your message" class="w-full p-4 mb-4 rounded bg-gray-800 text-white" rows="4" required></textarea>
+      <button type="submit" class="w-full px-6 py-4 bg-blue-500 hover:bg-blue-600 rounded text-white">Send Message</button>
+  </form>
+</section>
+
+<!-- Add EmailJS Script -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+ (function() {
+     emailjs.init('XGJqP0cbaUvo1EuK4'); // Replace with your EmailJS user ID
+ })();
+
+ document.getElementById('contact-form').addEventListener('submit', function(event) {
+     event.preventDefault(); // Prevent the default form submission
+
+     // Get form values
+     var name = document.getElementById('name').value;
+     var email = document.getElementById('email').value;
+     var message = document.getElementById('message').value;
+
+     // Prepare email params
+     var templateParams = {
+         name: name,
+         email: email,
+         message: message
+     };
+
+     // Send email using EmailJS
+     emailjs.send('service_lxsmhga', 'template_rc5uws2', templateParams)
+         .then(function(response) {
+             console.log('SUCCESS!', response.status, response.text);
+             alert("Message sent successfully!");
+         }, function(error) {
+             console.log('FAILED...', error);
+             alert("Failed to send message. Please try again later.");
+         });
+ });
+</script>
+
+    <footer class="py-6 bg-black text-center text-gray-400" >
+        <p>&copy; 2024 NEOs Explorer. All Rights Reserved.</p>
+      </footer>
+
+    <script src="../script/neo.js"></script>
+    <script src="../script/orrery.js"></script>
+</body>
+</html>
