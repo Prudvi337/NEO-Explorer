@@ -288,3 +288,18 @@ transition: text-decoration 0.3s; /* Smooth transition for underline */
 #hero a:hover {
     background-color: #00a0e5;
 }
+.feature-card {
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+.feature-card:hover {
+    transform: scale(1.05);
+}
+.card-content {
+    background-color: rgba(73, 73, 74, 0.3);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}

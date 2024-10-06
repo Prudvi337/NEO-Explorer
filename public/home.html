@@ -115,38 +115,49 @@
   </section>
 
   <!-- Features Section -->
-  <section id="features" class="py-24 bg-gradient-to-b from-gray-900 to-black text-center text-white">
-    <h2 class="text-4xl font-bold text-blue-400 mb-8">Features</h2>
-    <div class="flex flex-wrap justify-center space-x-8">
-      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/3d.gif'); background-size: cover; background-position: center;">
-        <h3 class="text-2xl font-semibold mb-4">Real-Time 3D Visualization</h3>
-        <p class="text-gray-400">Experience the universe like never before. View planets, asteroids, and NEOs in full 3D with realistic textures and dynamic lighting. Each object is rendered in real-time for a seamless and immersive journey through space.</p>
-      </div>
-      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/solar.gif'); background-size: cover; background-position: center;">
-        <h3 class="text-2xl font-semibold mb-4">Planetary Orbits</h3>
-        <p class="text-gray-400">Witness the intricate dance of celestial bodies as they orbit the sun. The simulation ensures precise orbit paths for planets, asteroids, and NEOs based on their astronomical data, giving users an authentic view of our solar system’s mechanics.</p>
-      </div>
-      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/zoom.gif'); background-size: cover; background-position: center;">
-        <h3 class="text-2xl font-semibold mb-4">Interactive Exploration</h3>
-        <p class="text-gray-400">Navigate through the cosmos at your fingertips. Zoom in to examine the details of planets or NEOs, and click on objects to reveal detailed data. This feature empowers users to explore specific bodies and gain insights into their orbits, velocity, and more.</p>
-      </div>
-    </div>
-    <div class="flex flex-wrap justify-center space-x-8" style="margin-top: 20px;">
-      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/neo.gif'); background-size: cover; background-position: center;">
-        <h3 class="text-2xl font-semibold mb-4">NEOs Search by Date</h3>
-        <p class="text-gray-400">Utilize the NEOs search feature to discover and explore Near-Earth Objects approaching Earth within specific date ranges. Stay informed on NEOs close to Earth during any chosen time frame.</p>
-      </div>
-      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/interactive.gif'); background-size: cover; background-position: center;">
-        <h3 class="text-2xl font-semibold mb-4">Zoom & Click Functionality</h3>
-        <p class="text-gray-400">Dive deep into the solar system by zooming in on specific planets or NEOs, and click on objects to access detailed information about their size, velocity, distance, and orbital characteristics.</p>
-      </div>
-      <div class="max-w-xs p-6 bg-gray-800 rounded-lg hover:scale-105 transform transition" style="background-image: url('assets/inter.jpg'); background-size: cover; background-position: center;">
-        <h3 class="text-2xl font-semibold mb-4">Planetary & Sun Exploration</h3>
-        <p class="text-gray-400">Explore precise planetary orbits and the Sun's position, observing their interactions and alignments with celestial bodies to gain insights into the solar system's dynamics.</p>
-      </div>
+  <section id="features" class="py-12 md:py-24 bg-gradient-to-b from-gray-900 to-black text-center text-white">
+    <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-8">Features</h2>
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="feature-card rounded-lg overflow-hidden" style="background-image: url('assets/3d.gif');">
+                <div class="card-content p-6">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Real-Time 3D Visualization</h3>
+                    <p class="text-sm md:text-base text-gray-300">Experience the universe like never before. View planets, asteroids, and NEOs in full 3D with realistic textures and dynamic lighting.</p>
+                </div>
+            </div>
+            <div class="feature-card rounded-lg overflow-hidden" style="background-image: url('assets/solar.gif');">
+                <div class="card-content p-6">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Planetary Orbits</h3>
+                    <p class="text-sm md:text-base text-gray-300">Witness the intricate dance of celestial bodies as they orbit the sun. The simulation ensures precise orbit paths for planets, asteroids, and NEOs.</p>
+                </div>
+            </div>
+            <div class="feature-card rounded-lg overflow-hidden" style="background-image: url('assets/zoom.gif');">
+                <div class="card-content p-6">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Interactive Exploration</h3>
+                    <p class="text-sm md:text-base text-gray-300">Navigate through the cosmos at your fingertips. Zoom in to examine the details of planets or NEOs, and click on objects to reveal detailed data.</p>
+                </div>
+            </div>
+            <div class="feature-card rounded-lg overflow-hidden" style="background-image: url('assets/neo.gif');">
+                <div class="card-content p-6">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">NEOs Search by Date</h3>
+                    <p class="text-sm md:text-base text-gray-300">Utilize the NEOs search feature to discover and explore Near-Earth Objects approaching Earth within specific date ranges.</p>
+                </div>
+            </div>
+            <div class="feature-card rounded-lg overflow-hidden" style="background-image: url('assets/interactive.gif');">
+                <div class="card-content p-6">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Zoom & Click Functionality</h3>
+                    <p class="text-sm md:text-base text-gray-300">Dive deep into the solar system by zooming in on specific planets or NEOs, and click on objects to access detailed information.</p>
+                </div>
+            </div>
+            <div class="feature-card rounded-lg overflow-hidden" style="background-image: url('assets/inter.jpg');">
+                <div class="card-content p-6">
+                    <h3 class="text-xl md:text-2xl font-semibold mb-2">Planetary & Sun Exploration</h3>
+                    <p class="text-sm md:text-base text-gray-300">Explore precise planetary orbits and the Sun's position, observing their interactions and alignments with celestial bodies.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-
   <!-- Contributors Section -->
 
   <section id="contributors" class="py-24 bg-gradient-to-b from-gray-1000 to-black text-center text-white"style="background-image: url('assets/earth.gif'); background-size: cover; background-position: center;">
