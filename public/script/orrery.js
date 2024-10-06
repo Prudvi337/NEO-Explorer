@@ -1,7 +1,7 @@
  const pageTitle = document.title;
 
 // JavaScript for Page 1
-if (pageTitle === "NEOs Explorer" || pageTitle === "NEOs Data") {
+if (pageTitle === "NEO Explorer" || pageTitle === "NEOs Data") {
   // Get all buttons with the class "start-exploring-btn"
   const startExploringBtns = document.querySelectorAll(".start-exploring-btn");
   const popup = document.getElementById("popup");
