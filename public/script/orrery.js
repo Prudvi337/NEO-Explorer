@@ -31,8 +31,8 @@ if (pageTitle === "NEOs Explorer" || pageTitle === "NEOs Data") {
     // Calculate the difference in days between the two dates
     const differenceInDays = Math.round((new Date(endDate) - new Date(startDate)) / (1000 * 3600 * 24));
 
-    // Check if the date range is more than 2 days
-    if (differenceInDays > 2) {
+    // Check if the date range is more than 5 days
+    if (differenceInDays > 5) {
       errorMessage.style.display = "block";
     } else {
       errorMessage.style.display = "none";

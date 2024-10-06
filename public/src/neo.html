@@ -8,23 +8,88 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="../assets/icon.png">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
+<style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .space-theme {
+            background-color: #000;
+            color: #fff;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+                radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+            background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+            animation: space-float 120s linear infinite;
+        }
+        @keyframes space-float {
+            from { background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; }
+            to { background-position: 1000px 1000px, 1040px 1060px, 1130px 1270px, 1070px 1100px; }
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+    </style>
 </head>
 <body class="space-theme">
-    <!-- Header with updated nav bar -->
-    <header class="flex justify-between items-center p-6 bg-gradient-to-r from-blue-900 to-black fixed top-0 w-full z-50">
-      <div class="flex items-center">
-        <img src="../assets/logo.png" alt="NEOs Explorer Logo" class="w-8 h-8 mr-2" style="width: 50px; height: 50px;">
-        <span class="text-2xl font-bold text-blue-400">NEOs Explorer</span>
-    </div>  
-          <nav>
-          <ul class="flex space-x-6">
-            <li><a href="../home.html" class="hover:text-blue-400 transition">About</a></li>
-            <li><a href="neo.html" class="hover:text-blue-400 transition">NEOs Data</a></li>
-            <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
-            <li><a href="javascript:void(0)" class="start-exploring-btn mt-8 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition duration-300">Start Exploring</a></li>
-          </ul>
+    <header class="flex justify-between items-center p-4 md:p-6 bg-gradient-to-r from-blue-900 to-black fixed top-0 w-full z-50">
+        <div class="flex items-center">
+            <img src="../assets/logo.png" alt="NEOs Explorer Logo" class="w-8 h-8 mr-2 md:w-12 md:h-12" style="width: 50px; height: 50px;">
+            <span class="text-xl md:text-2xl font-bold text-blue-400">NEOs Explorer</span>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:block">
+            <ul class="flex space-x-6 items-center">
+                <li><a href="../home.html" class="hover:text-blue-400 transition">About</a></li>
+                <li><a href="neo.html" class="hover:text-blue-400 transition">NEOs Data</a></li>
+                <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+                <li><a href="javascript:void(0)" class="start-exploring-btn px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition duration-300">Start Exploring</a></li>
+            </ul>
         </nav>
-      </header> 
+        
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" class="md:hidden text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="fixed top-5 right-0 bottom-0 bg-blue-900 w-64 p-4 transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+        <button id="close-mobile-menu" class="absolute top-4 right-4 text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <ul class="flex flex-col space-y-4 mt-12">
+            <li><a href="../home.html" class="block py-2 hover:text-blue-400 transition">About</a></li>
+            <li><a href="neo.html" class="block py-2 hover:text-blue-400 transition">NEOs Data</a></li>
+            <li><a href="#contact" class="block py-2 hover:text-blue-400 transition">Contact</a></li>
+            <li><a href="javascript:void(0)" class="start-exploring-btn block mt-4 px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-full text-white text-center transition duration-300">Start Exploring</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+    </script>
+</body>
       <div id="popup" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
         <div class="popup-content p-8 bg-gray-900 rounded-lg text-white relative w-96 space-theme">
           <h2 class="text-2xl mb-4">Select Dates to Explore NEOs</h2>
@@ -33,7 +98,7 @@
             <input type="date" id="start-date" class="w-full p-2 mb-4 text-black" required min="2020-01-01" max="2030-12-31">
             <label for="end-date" class="block mb-2">To:</label>
             <input type="date" id="end-date" class="w-full p-2 mb-4 text-black" required min="2020-01-01" max="2030-12-31">
-            <p class="text-sm text-red-500 hidden" id="error-message">You cannot select more than 3 days!</p>
+            <p class="text-sm text-red-500 hidden" id="error-message">You cannot select more than 5 days!</p>
             <button type="submit" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 py-2 rounded-full text-white">Explore NEOs</button>
           </form>
           <button id="close-popup" class="absolute top-2 right-2 text-white">X</button>

@@ -51,7 +51,7 @@
     </header>
 
     <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="fixed top-0 right-0 bottom-0 bg-blue-900 w-64 p-4 transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+    <div id="mobile-menu" class="fixed top-5 right-0 bottom-0 bg-blue-900 w-64 p-4 transform translate-x-full transition-transform duration-300 ease-in-out z-40">
         <button id="close-mobile-menu" class="absolute top-4 right-4 text-white">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -86,7 +86,7 @@
     <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
       <source src="assets/earth1.mp4" type="video/mp4">
     </video>
-    <h1 class="text-6xl font-orbitron tracking-wide text-blue-200 animate-pulse">Explore the Universe</h1>
+    <h1 class="text-6xl font-orbitron tracking-wide text-blue-200 animate-pulse"style="top:12px;">Explore the Universe</h1>
     <p class="mt-4 text-xl text-gray-300">Discover planets, asteroids, and Near-Earth Objects with our interactive 3D experience</p>
     <a href="javascript:void(0)" class="start-exploring-btn mt-8 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition duration-300">Start Exploring</a>
     <div id="popup" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
@@ -97,7 +97,7 @@
           <input type="date" id="start-date" class="w-full p-2 mb-4 text-black" required min="2020-01-01" max="2030-12-31">
           <label for="end-date" class="block mb-2">To:</label>
           <input type="date" id="end-date" class="w-full p-2 mb-4 text-black" required min="2020-01-01" max="2030-12-31">
-          <p class="text-sm text-red-500 hidden" id="error-message">You cannot select more than 3 days!</p>
+          <p class="text-sm text-red-500 hidden" id="error-message">You cannot select more than 5 days!</p>
           <button type="submit" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 py-2 rounded-full text-white">Explore NEOs</button>
         </form>
         <button id="close-popup" class="absolute top-2 right-2 text-white">X</button>
