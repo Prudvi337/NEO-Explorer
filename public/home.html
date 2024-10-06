@@ -11,26 +11,76 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
+<style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.hidden {
+            transform: translateX(100%);
+        }
+    </style>
 </head>
+<body class="bg-black text-white">
+    <header class="flex justify-between items-center p-4 md:p-6 bg-gradient-to-r from-blue-900 to-black fixed top-0 w-full z-50">
+        <div class="flex items-center">
+            <img src="assets/logo.png" alt="NEOs Explorer Logo" class="w-8 h-8 mr-2 md:w-12 md:h-12" style="width: 50px; height: 50px;">
+            <span class="text-xl md:text-2xl font-bold text-blue-400">NEOs Explorer</span>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:block">
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
+                <li><a href="#features" class="hover:text-blue-400 transition">Features</a></li>
+                <li><a href="#contributors" class="hover:text-blue-400 transition">Contributors</a></li>
+                <li><a href="src/neo.html" class="hover:text-blue-400 transition">NEOs Data</a></li>
+                <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+                <li><a href="javascript:void(0)" class="start-exploring-btn px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition duration-300">Start Exploring</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" class="md:hidden text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </header>
 
-<body class="bg-black text-white font-roboto">
-  <header class="flex justify-between items-center p-6 bg-gradient-to-r from-blue-900 to-black fixed top-0 w-full z-50">
-    <div class="flex items-center">
-      <img src="assets/logo.png" alt="NEOs Explorer Logo" class="w-8 h-8 mr-2" style="width: 50px; height: 50px;">
-      <span class="text-2xl font-bold text-blue-400">NEOs Explorer</span>
-  </div>
-      <nav>
-      <ul class="flex space-x-6">
-        <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
-        <li><a href="#features" class="hover:text-blue-400 transition">Features</a></li>
-        <li><a href="#contributors" class="hover:text-blue-400 transition">Contributors</a></li>
-        <li><a href="src/neo.html" class="hover:text-blue-400 transition">NEOs Data</a></li>
-        <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
-        <li><a href="javascript:void(0)" class="start-exploring-btn mt-8 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition duration-300">Start Exploring</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="fixed top-0 right-0 bottom-0 bg-blue-900 w-64 p-4 transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+        <button id="close-mobile-menu" class="absolute top-4 right-4 text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <ul class="flex flex-col space-y-4 mt-12">
+            <li><a href="#about" class="block py-2 hover:text-blue-400 transition">About</a></li>
+            <li><a href="#features" class="block py-2 hover:text-blue-400 transition">Features</a></li>
+            <li><a href="#contributors" class="block py-2 hover:text-blue-400 transition">Contributors</a></li>
+            <li><a href="src/neo.html" class="block py-2 hover:text-blue-400 transition">NEOs Data</a></li>
+            <li><a href="#contact" class="block py-2 hover:text-blue-400 transition">Contact</a></li>
+            <li><a href="javascript:void(0)" class="start-exploring-btn block mt-4 px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-full text-white text-center transition duration-300">Start Exploring</a></li>
+        </ul>
+    </div>
 
+    <script>
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+    </script>
+</body>
  <!-- Hero Section -->
 <section id="hero" class="h-screen flex flex-col justify-center items-center relative">
     <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
