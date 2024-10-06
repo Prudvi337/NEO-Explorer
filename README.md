@@ -1,4 +1,5 @@
 NEO Explorer
+
 NASA Space Apps Challenge 2024: Create an Orrery Web App that Displays Near-Earth Objects
 NEO Explorer is an interactive web application developed as part of the 2024 NASA Space Apps Challenge. The goal of this project is to provide a visually engaging and educational tool that allows users to explore Near-Earth Objects (NEOs), such as asteroids and comets, along with other celestial bodies in our solar system.
 
