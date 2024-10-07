@@ -1,4 +1,4 @@
- const pageTitle = document.title;
+const pageTitle = document.title;
 
 // JavaScript for Page 1
 if (pageTitle === "NEO Explorer" || pageTitle === "NEOs Data") {
@@ -153,6 +153,33 @@ if (pageTitle === "Orrery Web App") {
 
   // Create the dynamic starfield
   const starField = createStarfield(scene);
+  function createAsteroidBelt(scene, density) {
+    const asteroidGeometry = new THREE.SphereGeometry(0.03, 8, 8);
+    const asteroidMaterial = new THREE.MeshStandardMaterial({
+      color: 0x808080,
+      roughness: 0,
+      metalness: 0,
+    });
+    for (let i = 0; i < density; i++) {
+      const asteroid = new THREE.Mesh(asteroidGeometry, asteroidMaterial);
+      const distance = 7 + Math.random() * 1; // Adjusted to fit between Mars and Jupiter
+      const angle = Math.random() * Math.PI * 2;
+      const x = distance * Math.cos(angle);
+      const z = distance * Math.sin(angle);
+      asteroid.position.set(
+        x + (Math.random() - 0.5) * 0.5,
+        (Math.random() - 0.5) * 0.5,
+        z + (Math.random() - 0.5) * 0.5
+      );
+      asteroid.rotation.set(
+        Math.random() * Math.PI * 2,
+        Math.random() * Math.PI * 2,
+        Math.random() * Math.PI * 2
+      );
+      scene.add(asteroid);
+    }
+  }
+createAsteroidBelt(scene,500);
 
   // Planets data
   const planetsData = {
