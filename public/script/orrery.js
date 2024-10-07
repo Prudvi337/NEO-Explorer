@@ -288,7 +288,7 @@ createAsteroidBelt(scene,500);
     // Load NEOs from JSON and position them around Earth
     async function loadNEOs(startDate, endDate) {
       try {
-        const response = await fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=DEMO_KEY`);
+        const response = await fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=LGqgPJedfST31QsqBqjS6D3ugweSgmf3yozJGhyG`);
         const neosData = await response.json();
         let neos = [];
 
