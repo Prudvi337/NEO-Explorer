@@ -1,6 +1,6 @@
   // Function to fetch NEO data
   async function fetchNEOsData(startDate, endDate) {
-    const apiUrl = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=LGqgPJedfST31QsqBqjS6D3ugweSgmf3yozJGhyG`;
+    const apiUrl = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=DEMO_KEY`;
 
     try {
       const response = await fetch(apiUrl);
