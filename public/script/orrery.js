@@ -42,7 +42,7 @@ if (pageTitle === "NEO Explorer" || pageTitle === "NEOs Data") {
       sessionStorage.setItem("endDate", endDate);
 
       // Redirect to the exploration page (orrey.html)
-      if (pageTitle === "NEOs Explorer"){
+      if (pageTitle === "NEO Explorer"){
         window.location.href = 'src/orrey.html';
 
       }
