@@ -77,13 +77,15 @@ NEO Explorer is more than just a visualization tool. It’s a **learning experie
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/neo-explorer.git
+git clone https://github.com/Prudvi337/NEO-Explorer.git
 
 # Navigate into the directory
 cd neo-explorer
 
+# Install dependensies
 npm install
 
+# Start the server
 npm start 
 
 ```
